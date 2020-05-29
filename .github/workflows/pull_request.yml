@@ -1,0 +1,14 @@
+on: pull_request
+name: Translations Workflow
+jobs:
+  formatCode:
+    name: Translate Strings
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+      - name: translate strings
+        uses: ./.github/actions/action-gtranslate
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
