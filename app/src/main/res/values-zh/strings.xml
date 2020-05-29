@@ -1,0 +1,23 @@
+<resources>
+  <string name="webadress">https://asrt.gluege.boerde.d e</string>
+  <string name="simple_text">Selly在海边出售贝壳</string>
+  <string name="includes_html_tags">你好<b> 世界</b> ！</string>
+  <string name="includes_placeholders">您好，％1$s 世界</string>
+  <string name="includes_placeholders_2">您好，％1$s 世界。您％2$s 好吗？通过第二个参数发挥创造力</string>
+  <string name="includes_apostrophe_escape">繁荣，让我们看看你翻译这个</string>
+  <string name="includes_ampersand">哈里和邓布利多去海滩</string>
+  <string name="includes_atherate">莎莉告诉她，@而不是耳朵</string>
+  <string name="includes_html_links"><a href="tran"> 链接名称</a> 您可能应该将其标记为不可翻译。但是在这里我们尝试调试边缘情况</string>
+  <string name="test_string">最后的气宗</string>
+  <plurals name="includes_quantity_strings">
+    <item quantity="one">％1$s 追随者</item>
+    <item quantity="other">％1$s 个关注者</item>
+  </plurals>
+  <string name="includes_paragraphs">你好<b> 世界</b> ！\n这是一些测试消息\n\n即使有两次退货！</string>
+  <string name="app_name">翻译测试</string>
+  <string-array name="search_title">
+    <item>我可以搜索什么？</item>
+    <item>我需要一个<i> 要搜索的帐户</i> 并查看信息？</item>
+    <item>如何搜索设计中显示的产品？</item>
+  </string-array>
+</resources>
