@@ -1,0 +1,2 @@
+rootProject.name='TranslatorBot'
+include ':app'
