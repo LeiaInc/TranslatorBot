@@ -45,6 +45,7 @@ def translate(to_translate, to_language="auto"):
         # misaligned in the response. This occurs only for chinese translations. Reformat the string
         # in that case
         translated_text = reformat_chinese_string(translated_text)
+        translated_text = translated_text.replace('％', '%')
 
     parsed2 = unescape(translated_text)
     # fix parameter strings
