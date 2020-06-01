@@ -10,5 +10,8 @@ jobs:
           fetch-depth: '0'
       - name: translate strings
         uses: ./.github/actions/action-gtranslate
+        with:
+          translation-api-key: 'AIzaSyDBzuLnStbM-GJv7ILmACyS_8l3kzz2ez4'
+          output-languages: 'es,fr,zh'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
