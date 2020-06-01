@@ -52,8 +52,8 @@ _remove_scripts() {
 }
 
 _setup_git() {
-  git config --global user.name "Leia-Translator-Bot"
-  git config --global user.email "translations-bot@gmail.com"
+  git config --global user.name "Translator-Bot"
+  git config --global user.email "leia-codacy-bot@leiainc.com"
 
   git checkout "${GITHUB_BASE_REF}"
   git pull
