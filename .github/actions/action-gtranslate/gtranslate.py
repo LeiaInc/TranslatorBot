@@ -84,7 +84,9 @@ import re
 import sys
 
 TRANSLATIONS_API_KEY = sys.argv[1]
-OUTPUT_LANGUAGE_LIST = sys.argv[2].split(',')
+OUTPUT_LANGUAGES = sys.argv[2]
+OUTPUT_LANGUAGE_LIST = OUTPUT_LANGUAGES.split(',')
+print (OUTPUT_LANGUAGE_LIST)
 BASEPATH = "app/src/main/res/"
 INFILE = BASEPATH + "values/" + "strings.xml"
 INPUTLANGUAGE = "en"
