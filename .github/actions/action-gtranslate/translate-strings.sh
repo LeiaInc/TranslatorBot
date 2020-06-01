@@ -9,7 +9,7 @@ _setup_git
 
 if _should_translate;then
   _copy_scripts
-  python3 gtranslate.py ${INPUT_TRANSLATION-API-KEY} ${INPUT_OUTPUT-LANGUAGES}
+  python3 gtranslate.py ${INPUT_TRANSLATIONKEY} ${INPUT_OUTPUTLANGUAGES}
   _remove_scripts
   _requires_token
   _commit_if_needed
