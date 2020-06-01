@@ -1,0 +1,15 @@
+name: 'TranslatorAction'
+description: 'Greet someone and record the time'
+inputs:
+  translationKey:  # id of input
+    description: 'Translation API key received from Google'
+    required: true
+  outputLanguages:
+      description: 'Language codes to translate separated by a space'
+      required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.translationKey }}
+    - ${{ inputs.outputLanguages }}

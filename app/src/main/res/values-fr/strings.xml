@@ -1,0 +1,23 @@
+<resources>
+  <string name="webadress">https://asrt.gluege.boerde.de</string>
+  <string name="simple_text">Selly vend des coquillages au bord de la mer</string>
+  <string name="includes_html_tags">Bonjour<b> Monde</b> !</string>
+  <string name="includes_placeholders">Bonjour le monde %1$s</string>
+  <string name="includes_placeholders_2">Bonjour le monde %1$s. Comment allez-vous %2$s? Soyez créatif avec le deuxième paramètre</string>
+  <string name="includes_apostrophe_escape">Boom, voyons voir tu traduis ça</string>
+  <string name="includes_ampersand">Harry et Dumbledore vont à la plage</string>
+  <string name="includes_atherate">Sally lui a dit que c\'était @ et pas une oreille</string>
+  <string name="includes_html_links"><a href="tran"> Nom du lien</a> Vous devriez probablement marquer cela comme intraduisible. Mais ici, nous essayons de déboguer les cas de bord</string>
+  <string name="test_string">Le dernier maître de l\'air</string>
+  <plurals name="includes_quantity_strings">
+    <item quantity="one">%1$s abonné</item>
+    <item quantity="other">%1$s abonnés</item>
+  </plurals>
+  <string name="includes_paragraphs">Bonjour<b> Monde</b> ! \nCeci est un message de test \n\nMême avec un double retour!</string>
+  <string name="app_name">TranslatorTest</string>
+  <string-array name="search_title">
+    <item>Que puis-je rechercher?</item>
+    <item>Dois-je avoir un<i> compte à rechercher</i> et afficher des informations?</item>
+    <item>Comment rechercher des produits présentés dans un dessin?</item>
+  </string-array>
+</resources>

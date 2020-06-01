@@ -81,24 +81,15 @@ import os
 import xml.etree.ElementTree as ET
 import json
 import re
+import sys
 
-separator = "="
-keys = {}
-# Read configuration file
-with open('translation-config.properties') as f:
-    for line in f:
-        if separator in line:
-            # Find the name and value by splitting the string
-            name, value = line.split(separator, 1)
-            # Assign key value pair to dict
-            # strip() removes white space from the ends of strings
-            keys[name.strip()] = value.strip()
-
-BASEPATH = keys['RES_PATH']
-INFILE = BASEPATH + "/values/" + "strings.xml"
+TRANSLATIONS_API_KEY = sys.argv[1]
+OUTPUT_LANGUAGES = sys.argv[2]
+OUTPUT_LANGUAGE_LIST = OUTPUT_LANGUAGES.split(',')
+print (OUTPUT_LANGUAGE_LIST)
+BASEPATH = "app/src/main/res/"
+INFILE = BASEPATH + "values/" + "strings.xml"
 INPUTLANGUAGE = "en"
-OUTPUT_LANGUAGE_LIST = keys['OUTPUT_LANGUAGES'].split(' ')
-TRANSLATIONS_API_KEY = keys['TRANSLATIONS_API_KEY']
 
 for OUTPUT_LANGUAGE in OUTPUT_LANGUAGE_LIST:
     # create outfile in subfolder if doesn't already exist
