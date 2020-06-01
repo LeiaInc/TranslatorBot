@@ -8,6 +8,11 @@
   <string name="includes_apostrophe_escape">Boom, let\'s see you translate this</string>
   <string name="includes_ampersand">Harry &amp; Dumbledore go to the beach</string>
   <string name="includes_atherate">Sally told her its @ and not a ear</string>
+  <string name="reaction_like_msg">%1$s liked your post %2$s</string>
+  <string name="reaction_comment_msg">%1$s commented on your post %2$s</string>
+  <string name="reaction_follow_msg">%1$s started following you %2$s</string>
+  <string name="reaction_post_mention_msg">%1$s mentioned you in a post %2$s</string>
+  <string name="reaction_comment_mention_msg">%1$s mentioned you in a comment %2$s</string>
   <string name="includes_html_links"><a href="tran">Name of link</a> You should probably mark this as untranslatable. But here we are trying to debug edge cases</string>
   <string name="test_string">The last airbender, Omi</string>
   <plurals name="includes_quantity_strings">
