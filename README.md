@@ -16,7 +16,7 @@ This action has two required inputs.
 1. An API key. If a non Leia repository, you can get your own cloud translations API key by following the instructions here.
 2. The ISO-639-1 codes of the languages to translate to separated by a comma
 
-For example, the following workflow adds the Translator action for every Pull request created to a project
+For example, the following workflow adds the Translator action for every Pull request created to a project.
 The output languages are set to Spanish, French and Chinese.
 
 You can look up the ISO-639-1 language codes specified [here](https://cloud.google.com/translate/docs/languages) .
