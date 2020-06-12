@@ -20,7 +20,5 @@ RUN apk update \
 
 RUN pip3 install requests
 
-COPY translate-strings.sh /
-COPY lib.sh /
-COPY gtranslate.py /
-ENTRYPOINT ["/translate-strings.sh"]
+COPY scripts/ /scripts/
+ENTRYPOINT ["/scripts/translate-strings.sh"]
