@@ -33,12 +33,11 @@ jobs:
         with:
           fetch-depth: '0'
       - name: translate strings
-        uses: LeiaInc/TranslatorBot@v1.1
+        uses: LeiaInc/TranslatorBot@v2.0.1
         with:
           translationKey: 'YOUR_API_KEY'
           outputLanguages: 'es,fr,zh'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          resDirectories: 'app/src/main/res/'
 ```
 
 If using in a Leia repository, you can use the shared Translations API key
@@ -55,12 +54,11 @@ jobs:
         with:
           fetch-depth: '0'
       - name: translate strings
-        uses: LeiaInc/TranslatorBot@v1.1
+        uses: LeiaInc/TranslatorBot@v2.0.1
         with:
           translationKey: ${{ secrets.GOOGLE_TRANSLATE_API_KEY }}
           outputLanguages: 'es,fr,zh'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          resDirectories: 'app/src/main/res/'
 ```
 ## Specification
 
