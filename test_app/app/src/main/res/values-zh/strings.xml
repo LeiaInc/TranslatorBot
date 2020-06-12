@@ -1,0 +1,29 @@
+<resources>
+  <string name="webadress" translated-from="b175bac9">https://asrt.gluege.boerde.d e</string>
+  <string name="simple_text" translated-from="c234849b">Selly在海边出售贝壳</string>
+  <string name="includes_html_tags" translated-from="b9be3ef4">你好<b> 世界</b> ！</string>
+  <string name="includes_placeholders" translated-from="9787b306">您好，%1$s 世界</string>
+  <string name="includes_placeholders_2" translated-from="612222cf">您好，%1$s 世界。您%2$s 好吗？通过第二个参数发挥创造力</string>
+  <string name="includes_apostrophe_escape" translated-from="e041f9ad">oom，看你翻译</string>
+  <string name="includes_ampersand" translated-from="20f60526">哈里和邓布利多去海滩</string>
+  <string name="includes_atherate" translated-from="ac880cca">萨利试图告诉她它的@而不是耳朵</string>
+  <string name="reaction_like_msg" translated-from="193054b9">%1$s 顶了您的帖子%2$s</string>
+  <string name="reaction_comment_msg" translated-from="050d48c6">%1$s 对您的信息%2$s 发表了评论</string>
+  <string name="reaction_follow_msg" translated-from="615be84a">%1$s 开始关注您%2$s</string>
+  <string name="reaction_post_mention_msg" translated-from="97306e40">%1$s 在讯息%2$s 中提到您</string>
+  <string name="reaction_comment_mention_msg" translated-from="6f3ad67c">%1$s 在评论中提及了您%2$s</string>
+  <string name="includes_html_links" translated-from="d66a6756"><a href="tran"> 链接名称</a> 您可能应该将其标记为不可翻译。但是在这里我们尝试调试边缘情况</string>
+  <string name="test_string" translated-from="84c3e0c6">最后的气宗，近江</string>
+  <string name="edge_case_1" translated-from="1cc9ee55">风吹过大海。\n</string>
+  <plurals name="includes_quantity_strings">
+    <item quantity="one" translated-from="3d26f81a">%1$s 追随者</item>
+    <item quantity="other" translated-from="458a5b91">%1$s 个关注者</item>
+  </plurals>
+  <string name="includes_paragraphs" translated-from="742d111c">你好<b> 世界</b> ！\n这是一些测试消息\n\nE，即使有两次返回！</string>
+  <string name="app_name" translated-from="78f20f0f">翻译测试</string>
+  <string-array name="search_title">
+    <item translated-from="eadbdd51">我可以搜索什么？</item>
+    <item translated-from="ac443106">我需要一个<i> 要搜索的帐户</i> 并查看信息？</item>
+    <item translated-from="c6142640">如何搜索设计中显示的产品？</item>
+  </string-array>
+</resources>
