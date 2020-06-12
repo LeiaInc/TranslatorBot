@@ -1,15 +1,15 @@
 name: 'TranslatorAction'
 description: 'Greet someone and record the time'
 inputs:
-  translationKey:  # id of input
+  translationKey:
     description: 'Translation API key received from Google'
     required: true
   outputLanguages:
-      description: 'Language codes to translate separated by a space'
-      required: true
+    description: 'Language codes to translate separated by a comma'
+    required: true
+  resDirectories:
+    description: 'A comma-separated list of 1 or more Android res dirs to translate (ie, "app/src/main/res/,lib/src/main/res/"'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.translationKey }}
-    - ${{ inputs.outputLanguages }}
