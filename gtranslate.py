@@ -155,7 +155,11 @@ def handle_single_xml_element_translation(existing_xml_element, single_xml_eleme
 # Returns hash of a string
 def encode(text):
     result = hashlib.md5(text.encode())
-    return result.hexdigest()
+    h = result.hexdigest()
+
+    # Truncate the hash for readability of the generated files.
+    # An entropy of 16^8 means less than a one in 4 billion chance of any 2 strings having a hash collision.
+    return h[:8]
 
 
 # Finds and returns xml element if exists in the given root.
