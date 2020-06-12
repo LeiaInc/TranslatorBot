@@ -267,8 +267,9 @@ if __name__ == '__main__':
             elif (xml_element.tag == 'string-array') | (xml_element.tag == 'plurals'):
                 # XML element is of type <string-array></string-array> or <plurals>
                 existing_translated_xml_element = get_existing_xml(existing_translated_root, xml_element)
+                print(existing_translated_xml_element, xml_element)
                 if (existing_translated_xml_element is not None) \
-                        & (len(existing_translated_xml_element) == len(xml_element)):
+                        and (len(existing_translated_xml_element) == len(xml_element)):
                     # This xml element exists in translated file, cycle through both, and translate
                     for existing_item_element, item_element in zip(existing_translated_xml_element, xml_element):
                         handle_single_xml_element_translation(existing_item_element, item_element)
