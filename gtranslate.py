@@ -8,7 +8,7 @@ def parse_chinese_word(chinese_string):
     str_length = len(chinese_string)
     formatted_string = chinese_string
     for i, v in enumerate(chinese_string):
-        if (v == 's') | (v == 'd') & (str_length > 1):
+        if (v == 's') or (v == 'd') and (str_length > 1):
             split_pos = i + 1
             l, r = chinese_string[:split_pos], chinese_string[split_pos:]
             formatted_string = l + " " + r
@@ -86,7 +86,7 @@ def translate(text_to_translate, to_language="auto"):
 # html tags used within the xml text.
 def handle_single_xml_element_translation(existing_xml_element, single_xml_element):
 
-    if (len(single_xml_element) == 0) & (single_xml_element.text is not None):
+    if (len(single_xml_element) == 0) and (single_xml_element.text is not None):
         # Simple xml with text
         text_to_translate = single_xml_element.text
         existing_text_hashcode = ""
@@ -170,7 +170,7 @@ def get_existing_xml(existing_root, element_to_find):
 # present within the text.
 def get_nested_xml_text(nested_xml_element):
     s = ""
-    if (nested_xml_element is not None) & (nested_xml_element.text is not None):
+    if (nested_xml_element is not None) and (nested_xml_element.text is not None):
         s += nested_xml_element.text
     for child_xml in nested_xml_element:
         if child_xml.text is not None:
@@ -185,7 +185,7 @@ def get_nested_xml_text(nested_xml_element):
 def should_translate(existing_xml_hashcode, text_to_translate, translation_exists):
     if translation_exists:
         return False
-    if (existing_xml_hashcode is not None) & (text_to_translate is not None):
+    if (existing_xml_hashcode is not None) and (text_to_translate is not None):
         current_text_hashcode = encode(text_to_translate)
         # print(existing_element_text)
         # print(current_text_hashcode)
@@ -264,11 +264,12 @@ if __name__ == '__main__':
                 existing_translated_xml_element = get_existing_xml(existing_translated_root, xml_element)
                 handle_single_xml_element_translation(existing_translated_xml_element, xml_element)
 
-            elif (xml_element.tag == 'string-array') | (xml_element.tag == 'plurals'):
+            elif (xml_element.tag == 'string-array') or (xml_element.tag == 'plurals'):
                 # XML element is of type <string-array></string-array> or <plurals>
                 existing_translated_xml_element = get_existing_xml(existing_translated_root, xml_element)
+                print(existing_translated_xml_element, xml_element)
                 if (existing_translated_xml_element is not None) \
-                        & (len(existing_translated_xml_element) == len(xml_element)):
+                        and (len(existing_translated_xml_element) == len(xml_element)):
                     # This xml element exists in translated file, cycle through both, and translate
                     for existing_item_element, item_element in zip(existing_translated_xml_element, xml_element):
                         handle_single_xml_element_translation(existing_item_element, item_element)
