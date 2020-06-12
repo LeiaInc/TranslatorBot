@@ -9,7 +9,7 @@ jobs:
         with:
           fetch-depth: '0'
       - name: translate strings
-        uses: ./.github/
+        uses: ./
         with:
           translationKey: ${{ secrets.GOOGLE_TRANSLATE_API_KEY }}
           outputLanguages: 'es,fr,zh'
