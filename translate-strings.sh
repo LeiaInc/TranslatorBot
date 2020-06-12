@@ -6,7 +6,7 @@ set -e
 source /lib.sh
 
 _setup_git
-python3 /gtranslate.py ${INPUT_TRANSLATIONKEY} ${INPUT_OUTPUTLANGUAGES} ${GITHUB_WORKSPACE}
+python3 /gtranslate.py ${INPUT_TRANSLATIONKEY} ${INPUT_OUTPUTLANGUAGES} ${INPUT_RESDIRECTORIES}
 _commit_if_needed
 
 
