@@ -1,28 +1,29 @@
 <resources>
-  <string name="webadress">https://asrt.gluege.boerde.de</string>
-  <string name="simple_text">Selly vend des coquillages au bord de la mer</string>
-  <string name="includes_html_tags">Bonjour<b> Monde</b> !</string>
-  <string name="includes_placeholders">Bonjour le monde %1$s</string>
-  <string name="includes_placeholders_2">Bonjour le monde %1$s. Comment allez-vous %2$s? Soyez créatif avec le deuxième paramètre</string>
-  <string name="includes_apostrophe_escape">Boom, voyons voir tu traduis ça</string>
-  <string name="includes_ampersand">Harry et Dumbledore vont à la plage</string>
-  <string name="includes_atherate">Sally lui a dit que c\'était @ et pas une oreille</string>
-  <string name="reaction_like_msg">%1$s a aimé votre message %2$s</string>
-  <string name="reaction_comment_msg">%1$s a commenté votre message %2$s</string>
-  <string name="reaction_follow_msg">%1$s a commencé à vous suivre %2$s</string>
-  <string name="reaction_post_mention_msg">%1$s vous a mentionné dans un message %2$s</string>
-  <string name="reaction_comment_mention_msg">%1$s vous a mentionné dans un commentaire %2$s</string>
-  <string name="includes_html_links"><a href="tran"> Nom du lien</a> Vous devriez probablement marquer cela comme intraduisible. Mais ici, nous essayons de déboguer les cas de bord</string>
-  <string name="test_string">Le dernier maître de l\'air, Omi</string>
+  <string name="webadress" translated-from="b175bac9">https://asrt.gluege.boerde.de</string>
+  <string name="simple_text" translated-from="c234849b">Selly vend des coquillages au bord de la mer</string>
+  <string name="includes_html_tags" translated-from="b9be3ef4">Bonjour<b> Monde</b> !</string>
+  <string name="includes_placeholders" translated-from="9787b306">Bonjour le monde %1$s</string>
+  <string name="includes_placeholders_2" translated-from="612222cf">Bonjour %1$s monde. Comment allez-vous %2$s? Soyez créatif avec le deuxième paramètre</string>
+  <string name="includes_apostrophe_escape" translated-from="e041f9ad">Boom, voyons voir traduire</string>
+  <string name="includes_ampersand" translated-from="20f60526">Harry et Dumbledore vont à la plage</string>
+  <string name="includes_atherate" translated-from="ac880cca">Sally a essayé de lui dire son @ et pas une oreille</string>
+  <string name="reaction_like_msg" translated-from="193054b9">%1$s a aimé votre message %2$s</string>
+  <string name="reaction_comment_msg" translated-from="050d48c6">%1$s a commenté votre message %2$s</string>
+  <string name="reaction_follow_msg" translated-from="615be84a">%1$s a commencé à vous suivre %2$s</string>
+  <string name="reaction_post_mention_msg" translated-from="97306e40">%1$s vous a mentionné dans un post %2$s</string>
+  <string name="reaction_comment_mention_msg" translated-from="6f3ad67c">%1$s vous a mentionné dans un commentaire %2$s</string>
+  <string name="includes_html_links" translated-from="d66a6756"><a href="tran"> Nom du lien</a> Vous devriez probablement marquer cela comme intraduisible. Mais ici, nous essayons de déboguer les cas de bord</string>
+  <string name="test_string" translated-from="84c3e0c6">Le dernier maître de l\'air, Omi</string>
+  <string name="edge_case_1" translated-from="1cc9ee55">Le vent souffle sur la mer. \n</string>
   <plurals name="includes_quantity_strings">
-    <item quantity="one">%1$s abonné</item>
-    <item quantity="other">%1$s abonnés</item>
+    <item quantity="one" translated-from="3d26f81a">%1$s abonné</item>
+    <item quantity="other" translated-from="458a5b91">%1$s abonnés</item>
   </plurals>
-  <string name="includes_paragraphs">Bonjour<b> Monde</b> ! \nCeci est un message de test \n\nMême avec un double retour!</string>
-  <string name="app_name">TranslatorTest</string>
+  <string name="includes_paragraphs" translated-from="742d111c">Bonjour<b> Monde</b> ! \nT Ceci est un message de test \n\nMême avec un double retour!</string>
+  <string name="app_name" translated-from="78f20f0f">TranslatorTest</string>
   <string-array name="search_title">
-    <item>Que puis-je rechercher?</item>
-    <item>Dois-je avoir un<i> compte à rechercher</i> et afficher des informations?</item>
-    <item>Comment rechercher des produits présentés dans un dessin?</item>
+    <item translated-from="eadbdd51">Que puis-je rechercher?</item>
+    <item translated-from="ac443106">Dois-je avoir un<i> compte à rechercher</i> et afficher des informations?</item>
+    <item translated-from="c6142640">Comment rechercher des produits présentés dans un dessin?</item>
   </string-array>
 </resources>

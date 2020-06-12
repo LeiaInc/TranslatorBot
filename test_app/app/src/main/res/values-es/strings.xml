@@ -1,28 +1,29 @@
 <resources>
-  <string name="webadress">https://asrt.gluege.boerde.de</string>
-  <string name="simple_text">Selly vende conchas marinas en la orilla del mar</string>
-  <string name="includes_html_tags">Hola<b> Mundo</b> !</string>
-  <string name="includes_placeholders">Hola %1$s Mundo</string>
-  <string name="includes_placeholders_2">Hola %1$s World. ¿Cómo estás %2$s? Sé creativo con el segundo parámetro</string>
-  <string name="includes_apostrophe_escape">Boom, veamos que traduces esto</string>
-  <string name="includes_ampersand">Harry y Dumbledore van a la playa</string>
-  <string name="includes_atherate">Sally le dijo que es @ y no un oído</string>
-  <string name="reaction_like_msg">A %1$s le gustó tu publicación %2$s</string>
-  <string name="reaction_comment_msg">%1$s comentó tu publicación %2$s</string>
-  <string name="reaction_follow_msg">%1$s comenzó a seguirte %2$s</string>
-  <string name="reaction_post_mention_msg">%1$s te mencionó en una publicación %2$s</string>
-  <string name="reaction_comment_mention_msg">%1$s te mencionó en un comentario %2$s</string>
-  <string name="includes_html_links"><a href="tran"> Nombre del enlace</a> Probablemente deberías marcar esto como intraducible. Pero aquí estamos tratando de depurar casos extremos</string>
-  <string name="test_string">El último maestro del aire, Omi</string>
+  <string name="webadress" translated-from="b175bac9">https://asrt.gluege.boerde.de</string>
+  <string name="simple_text" translated-from="c234849b">Selly vende conchas marinas en la orilla del mar</string>
+  <string name="includes_html_tags" translated-from="b9be3ef4">Hola<b> Mundo</b> !</string>
+  <string name="includes_placeholders" translated-from="9787b306">Hola %1$s Mundo</string>
+  <string name="includes_placeholders_2" translated-from="612222cf">Hola %1$s World. ¿Cómo estás %2$s? Sé creativo con el segundo parámetro</string>
+  <string name="includes_apostrophe_escape" translated-from="e041f9ad">Boom, veamos cómo traduces esto</string>
+  <string name="includes_ampersand" translated-from="20f60526">Harry y Dumbledore van a la playa</string>
+  <string name="includes_atherate" translated-from="ac880cca">Sally trató de decirle que es @ y no un oído</string>
+  <string name="reaction_like_msg" translated-from="193054b9">A %1$s le gustó tu publicación %2$s</string>
+  <string name="reaction_comment_msg" translated-from="050d48c6">%1$s comentó tu publicación %2$s</string>
+  <string name="reaction_follow_msg" translated-from="615be84a">%1$s comenzó a seguirte %2$s</string>
+  <string name="reaction_post_mention_msg" translated-from="97306e40">%1$s te mencionó en una publicación %2$s</string>
+  <string name="reaction_comment_mention_msg" translated-from="6f3ad67c">%1$s te mencionó en un comentario %2$s</string>
+  <string name="includes_html_links" translated-from="d66a6756"><a href="tran"> Nombre del enlace</a> Probablemente deberías marcar esto como intraducible. Pero aquí estamos tratando de depurar casos extremos</string>
+  <string name="test_string" translated-from="84c3e0c6">El último maestro del aire, Omi</string>
+  <string name="edge_case_1" translated-from="1cc9ee55">El viento sopla sobre el mar. \n</string>
   <plurals name="includes_quantity_strings">
-    <item quantity="one">%1$s seguidor</item>
-    <item quantity="other">%1$s Seguidores</item>
+    <item quantity="one" translated-from="3d26f81a">%1$s seguidor</item>
+    <item quantity="other" translated-from="458a5b91">%1$s Seguidores</item>
   </plurals>
-  <string name="includes_paragraphs">Hola<b> Mundo</b> ! \nEste es un mensaje de prueba \n\n¡Incluso con doble retorno!</string>
-  <string name="app_name">TranslatorTest</string>
+  <string name="includes_paragraphs" translated-from="742d111c">Hola<b> Mundo</b> ! \nTesto es un mensaje de prueba \n\n¡Incluso con doble retorno!</string>
+  <string name="app_name" translated-from="78f20f0f">TranslatorTest</string>
   <string-array name="search_title">
-    <item>¿Qué puedo buscar?</item>
-    <item>¿Tengo que tener un<i> cuenta para buscar</i> y ver información?</item>
-    <item>¿Cómo busco los productos que se muestran en un diseño?</item>
+    <item translated-from="eadbdd51">¿Qué puedo buscar?</item>
+    <item translated-from="ac443106">¿Tengo que tener un<i> cuenta para buscar</i> y ver información?</item>
+    <item translated-from="c6142640">¿Cómo busco los productos que se muestran en un diseño?</item>
   </string-array>
 </resources>
