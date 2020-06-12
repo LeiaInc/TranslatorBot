@@ -13,8 +13,9 @@ the respective localized strings.xml files.
 ## Usage
 
 This action has two required inputs.
-1. An API key. If a non Leia repository, you can get your own cloud translations API key by following the instructions here.
-2. The ISO-639-1 codes of the languages to translate to separated by a comma
+1. An API key. If a non Leia repository, you can get your own cloud translations API key by following the instructions [here](https://codelabs.developers.google.com/codelabs/cloud-translation-intro/index.html#0) .
+2. Language codes of translated output languages separated by a comma
+3. A comma-separated list of 1 or more Android res dirs to translate (ie, "app/src/main/res/, lib/src/main/res/")
 
 For example, the following workflow adds the Translator action for every Pull request created to a project.
 The output languages are set to Spanish, French and Chinese.
