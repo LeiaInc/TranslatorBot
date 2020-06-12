@@ -1,5 +1,7 @@
 # TranslatorBot
 
+Latest Release - v2.0.0
+
 A [GitHub Action](https://github.com/actions) for automatically translating the strings.xml file in your android project using Google Cloud Translate API.
 
 
@@ -34,7 +36,7 @@ jobs:
         with:
           fetch-depth: '0'
       - name: translate strings
-        uses: LeiaInc/TranslatorBot@v2.0.1
+        uses: LeiaInc/TranslatorBot@v2.0.0
         with:
           translationKey: 'YOUR_API_KEY'
           outputLanguages: 'es,fr,zh'
@@ -55,7 +57,7 @@ jobs:
         with:
           fetch-depth: '0'
       - name: translate strings
-        uses: LeiaInc/TranslatorBot@v2.0.1
+        uses: LeiaInc/TranslatorBot@v2.0.0
         with:
           translationKey: ${{ secrets.GOOGLE_TRANSLATE_API_KEY }}
           outputLanguages: 'es,fr,zh'
