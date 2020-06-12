@@ -13,5 +13,6 @@ jobs:
         with:
           translationKey: ${{ secrets.GOOGLE_TRANSLATE_API_KEY }}
           outputLanguages: 'es,fr,zh'
+          resDirectories: 'test_app/app/src/main/res'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

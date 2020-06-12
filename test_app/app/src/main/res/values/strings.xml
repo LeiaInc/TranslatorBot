@@ -2,12 +2,13 @@
 <resources>
   <string name="webadress">https://asrt.gluege.boerde.de</string>
   <string name="simple_text">Selly sells sea shells on the sea shore</string>
+  <string name="untranslatable_text" translatable="false">Selly sells sea shells on the sea shore</string>
   <string name="includes_html_tags">Hello <b>World</b> !</string>
   <string name="includes_placeholders">Hello %1$s  World</string>
   <string name="includes_placeholders_2">Hello %1$s  World. How are %2$s you? Be creative with the second parameter</string>
   <string name="includes_apostrophe_escape">Boom, let\'s see you translate this</string>
   <string name="includes_ampersand">Harry &amp; Dumbledore go to the beach</string>
-  <string name="includes_atherate">Sally told her its @ and not a ear</string>
+  <string name="includes_atherate">Sally tried to tell her its @ and not a ear</string>
   <string name="reaction_like_msg">%1$s liked your post %2$s</string>
   <string name="reaction_comment_msg">%1$s commented on your post %2$s</string>
   <string name="reaction_follow_msg">%1$s started following you %2$s</string>
@@ -15,6 +16,7 @@
   <string name="reaction_comment_mention_msg">%1$s mentioned you in a comment %2$s</string>
   <string name="includes_html_links"><a href="tran">Name of link</a> You should probably mark this as untranslatable. But here we are trying to debug edge cases</string>
   <string name="test_string">The last airbender, Omi</string>
+  <string name="edge_case_1">The wind blows over the sea.\n</string>
   <plurals name="includes_quantity_strings">
     <item quantity="one">%1$s  Follower</item>
     <item quantity="other">%1$s  Followers</item>
@@ -31,4 +33,6 @@
     <item>How do I search for products shown in a design?</item>
   </string-array>
 </resources>
+
+
 
