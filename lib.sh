@@ -5,7 +5,7 @@ _git_is_dirty() {
 }
 
 _commit_and_push() {
-	git add app/src/main/res/*
+	git add .
 	git commit -m "translator-bot: Added Translations"
 	git push
 }
