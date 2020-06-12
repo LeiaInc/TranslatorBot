@@ -14,7 +14,7 @@
   <string name="reaction_comment_mention_msg">%1$s te mencionó en un comentario %2$s</string>
   <string name="includes_html_links"><a href="tran"> Nombre del enlace</a> Probablemente deberías marcar esto como intraducible. Pero aquí estamos tratando de depurar casos extremos</string>
   <string name="test_string">El último maestro del aire, Omi</string>
-  <string name="edge_case_1" translated-from="1cc9ee559b1c8a9d472875c3713378ba">El viento sopla sobre el mar. \n</string>
+  <string name="edge_case_1" translated-from="1cc9ee55">El viento sopla sobre el mar. \n</string>
   <plurals name="includes_quantity_strings">
     <item quantity="one">%1$s seguidor</item>
     <item quantity="other">%1$s Seguidores</item>
