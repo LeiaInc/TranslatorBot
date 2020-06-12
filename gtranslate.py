@@ -84,7 +84,7 @@ def translate(text_to_translate, to_language="auto"):
 
 # Also handles, single xml elements that are further broken down by Element tree because of
 # html tags used within the xml text.
-def handle_single_xml_element_translation(existing_xml_element, single_xml_element):
+def handle_single_xml_element_translation(existing_xml_element, single_xml_element, output_language):
 
     if (len(single_xml_element) == 0) and (single_xml_element.text is not None):
         # Simple xml with text
@@ -194,56 +194,26 @@ def should_translate(existing_xml_hashcode, text_to_translate, translation_exist
     return True
 
 
-# MAIN PROGRAM
-if __name__ == '__main__':
+def translate_res_dir(language_codes, res_dir: str):
 
-    # import libraries
-    import requests
-    from requests.exceptions import HTTPError
-    from html import unescape
-    import os
-    import xml.etree.ElementTree as ET
-    import json
-    import re
-    import hashlib
-    import argparse
-    import urllib.parse
+    infile = res_dir + "/values/" + "strings.xml"
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument('api', action='store', type=str, help='The API key for Translate API')
-    parser.add_argument('output', action='store', type=str,
-                        help='Output languages separated by comma. For eg. '
-                             'To translate to spanish and french, use \'es,fr\'')
-    parser.add_argument('path', action='store', type=str, help='The path to the github workspace')
-    args = parser.parse_args()
-
-    TRANSLATIONS_API_KEY = args.api
-    OUTPUT_LANGUAGES = args.output
-    WORKSPACE_PATH = args.path
-
-    OUTPUT_LANGUAGE_LIST = OUTPUT_LANGUAGES.split(',')
-    print (OUTPUT_LANGUAGE_LIST)
-
-    BASE_PATH = WORKSPACE_PATH + "/app/src/main/res/"
-    INFILE = BASE_PATH + "values/" + "strings.xml"
-
-    for output_language in OUTPUT_LANGUAGE_LIST:
+    for output_language in language_codes:
         # create outfile in subfolder if doesn't already exist
-        name, ext = os.path.splitext(INFILE)
-        if not os.path.exists(BASE_PATH + "values-" + output_language):
-            os.mkdir(BASE_PATH + "values-" + output_language)
-        OUTFILE = BASE_PATH + "values-" + output_language + "/strings.xml"
+        if not os.path.exists(res_dir + "/values-" + output_language):
+            os.mkdir(res_dir + "/values-" + output_language)
+        out_file = res_dir + "/values-" + output_language + "/strings.xml"
 
         existing_translated_tree = None
         existing_translated_root = None
 
-        if os.path.exists(OUTFILE):
+        if os.path.exists(out_file):
             # If translated strings.xml exists, parse it and get the root.
-            existing_translated_tree = ET.parse(OUTFILE)
+            existing_translated_tree = ET.parse(out_file)
             existing_translated_root = existing_translated_tree.getroot()
 
         # read xml structure
-        english_tree = ET.parse(INFILE)
+        english_tree = ET.parse(infile)
         english_root = english_tree.getroot()
         removal_list = []
 
@@ -262,7 +232,7 @@ if __name__ == '__main__':
             if xml_element.tag == 'string':
                 # XML element is of type <string></string>
                 existing_translated_xml_element = get_existing_xml(existing_translated_root, xml_element)
-                handle_single_xml_element_translation(existing_translated_xml_element, xml_element)
+                handle_single_xml_element_translation(existing_translated_xml_element, xml_element, output_language)
 
             elif (xml_element.tag == 'string-array') or (xml_element.tag == 'plurals'):
                 # XML element is of type <string-array></string-array> or <plurals>
@@ -271,14 +241,48 @@ if __name__ == '__main__':
                         and (len(existing_translated_xml_element) == len(xml_element)):
                     # This xml element exists in translated file, cycle through both, and translate
                     for existing_item_element, item_element in zip(existing_translated_xml_element, xml_element):
-                        handle_single_xml_element_translation(existing_item_element, item_element)
+                        handle_single_xml_element_translation(existing_item_element, item_element, output_language)
                 else:
                     # This xml element doesn't exist, simply translate.
                     for item_element in xml_element:
-                        handle_single_xml_element_translation(None, item_element)
+                        handle_single_xml_element_translation(None, item_element, output_language)
 
         for element in removal_list:
             english_root.remove(element)
 
         # write the translated tree to the output file.
-        english_tree.write(OUTFILE, encoding="utf-8")
+        english_tree.write(out_file, encoding="utf-8")
+
+
+if __name__ == '__main__':
+
+    # import libraries
+    import requests
+    from requests.exceptions import HTTPError
+    from html import unescape
+    import os
+    import xml.etree.ElementTree as ET
+    import json
+    import re
+    import hashlib
+    import argparse
+    import urllib.parse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('api_key', action='store', type=str, help='The API key for Google Translate API')
+    parser.add_argument('output_languages', action='store', type=str,
+                        help='Output languages separated by comma. For eg. '
+                             'To translate to spanish and french, use \'es,fr\'')
+    parser.add_argument('res_dirs', type=str,
+                        help='A list of 1 or more Android res dirs to translate'
+                             '(ie, "app/src/main/res/,lib/src/main/res/")')
+    args = parser.parse_args()
+
+    TRANSLATIONS_API_KEY = args.api_key
+    OUTPUT_LANGUAGES = args.output_languages
+
+    OUTPUT_LANGUAGE_LIST = OUTPUT_LANGUAGES.split(',')
+
+    for res_dir in args.res_dirs.split(','):
+        translate_res_dir(OUTPUT_LANGUAGE_LIST, res_dir)
+
