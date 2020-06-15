@@ -3,6 +3,16 @@
 
 # output format: values-XX folders with strings.xml inside
 
+import requests
+from requests.exceptions import HTTPError
+from html import unescape
+import os
+import xml.etree.ElementTree as ET
+import json
+import re
+import hashlib
+import urllib.parse
+
 
 def parse_chinese_word(chinese_string):
     str_length = len(chinese_string)
@@ -24,9 +34,9 @@ def reformat_chinese_string(chinese_string):
     return formatted_string
 
 
-def query_translations_api(text_to_translate, to_language):
+def query_translations_api(api_key, text_to_translate, to_language):
 
-    params = {'source': 'en', 'target': to_language, 'key': TRANSLATIONS_API_KEY, 'q': text_to_translate }
+    params = {'source': 'en', 'target': to_language, 'key': api_key, 'q': text_to_translate }
     # Edge case where Google doesn't translate correctly if there is a period immediately before \n. Add a space
 
     url = "https://translation.googleapis.com/language/translate/v2?%s" % (urllib.parse.urlencode(params))
@@ -46,12 +56,12 @@ def query_translations_api(text_to_translate, to_language):
 
 # Function which calls the google translate API and converts the string to_
 # translate to the language specified in to_language
-def translate(text_to_translate, to_language="auto"):
+def translate(api_key, text_to_translate, to_language="auto"):
     # Workaround for issue with google translate translating \n to \norde
     text_to_translate = text_to_translate.replace('.\\n', '. \\n')
     text_to_translate = text_to_translate.replace('\\n', '0x0A')
     print('Translating to ' + to_language + ' - ' + text_to_translate)
-    translated_text = query_translations_api(text_to_translate, to_language)
+    translated_text = query_translations_api(api_key, text_to_translate, to_language)
 
     if 'zh' in to_language:
         # There's an issue with placeholder strings i.e Strings with %1$s, %1$d, %d, %s getting
@@ -84,7 +94,7 @@ def translate(text_to_translate, to_language="auto"):
 
 # Also handles, single xml elements that are further broken down by Element tree because of
 # html tags used within the xml text.
-def handle_single_xml_element_translation(existing_xml_element, single_xml_element, output_language):
+def handle_single_xml_element_translation(api_key, existing_xml_element, single_xml_element, output_language):
 
     if (len(single_xml_element) == 0) and (single_xml_element.text is not None):
         # Simple xml with text
@@ -98,7 +108,7 @@ def handle_single_xml_element_translation(existing_xml_element, single_xml_eleme
 
         if should_translate(existing_text_hashcode, text_to_translate, manual_translation_exists):
             # Contents are not same. Translate the text in the xml
-            single_xml_element.text = translate(text_to_translate, output_language).replace('\\ ', '\\') \
+            single_xml_element.text = translate(api_key, text_to_translate, output_language).replace('\\ ', '\\') \
                 .replace('\\ n ', '\\n').replace('\\n ', '\\n').replace('/ ', '/')
             single_xml_element.set('translated-from', encode(text_to_translate))
         else:
@@ -123,19 +133,19 @@ def handle_single_xml_element_translation(existing_xml_element, single_xml_eleme
             reassembled_string = ""
             if single_xml_element.text is not None:
                 reassembled_string += single_xml_element.text
-                single_xml_element.text = translate(single_xml_element.text, output_language)
+                single_xml_element.text = translate(api_key, single_xml_element.text, output_language)
             # if string was broken down due to HTML tags, reassemble it
             for child_element in single_xml_element:
                 if child_element.text is not None:
                     reassembled_string += child_element.text
                     # print('Text is ' + child_element.text)
-                    child_element.text = " " + translate(child_element.text, output_language).replace('\\ ', '\\') \
+                    child_element.text = " " + translate(api_key, child_element.text, output_language).replace('\\ ', '\\') \
                         .replace('\\ n ', '\\n').replace('\\n ', '\\n').replace('/ ', '/')
 
                 if child_element.tail is not None:
                     # print('Tail is ' + child_element.tail)
                     reassembled_string += child_element.tail
-                    child_element.tail = " " + translate(child_element.tail, output_language).replace('\\ ', '\\') \
+                    child_element.tail = " " + translate(api_key, child_element.tail, output_language).replace('\\ ', '\\') \
                         .replace('\\ n ', '\\n').replace('\\n ', '\\n').replace('/ ', '/')
 
                 # print('Complete text is ' + s)
@@ -198,7 +208,7 @@ def should_translate(existing_xml_hashcode, text_to_translate, translation_exist
     return True
 
 
-def translate_res_dir(language_codes, res_dir: str):
+def translate_res_dir(api_key, language_codes, res_dir: str):
 
     infile = res_dir + "/values/" + "strings.xml"
 
@@ -236,7 +246,7 @@ def translate_res_dir(language_codes, res_dir: str):
             if xml_element.tag == 'string':
                 # XML element is of type <string></string>
                 existing_translated_xml_element = get_existing_xml(existing_translated_root, xml_element)
-                handle_single_xml_element_translation(existing_translated_xml_element, xml_element, output_language)
+                handle_single_xml_element_translation(api_key, existing_translated_xml_element, xml_element, output_language)
 
             elif (xml_element.tag == 'string-array') or (xml_element.tag == 'plurals'):
                 # XML element is of type <string-array></string-array> or <plurals>
@@ -245,11 +255,11 @@ def translate_res_dir(language_codes, res_dir: str):
                         and (len(existing_translated_xml_element) == len(xml_element)):
                     # This xml element exists in translated file, cycle through both, and translate
                     for existing_item_element, item_element in zip(existing_translated_xml_element, xml_element):
-                        handle_single_xml_element_translation(existing_item_element, item_element, output_language)
+                        handle_single_xml_element_translation(api_key, existing_item_element, item_element, output_language)
                 else:
                     # This xml element doesn't exist, simply translate.
                     for item_element in xml_element:
-                        handle_single_xml_element_translation(None, item_element, output_language)
+                        handle_single_xml_element_translation(api_key, None, item_element, output_language)
 
         for element in removal_list:
             english_root.remove(element)
@@ -260,17 +270,7 @@ def translate_res_dir(language_codes, res_dir: str):
 
 if __name__ == '__main__':
 
-    # import libraries
-    import requests
-    from requests.exceptions import HTTPError
-    from html import unescape
-    import os
-    import xml.etree.ElementTree as ET
-    import json
-    import re
-    import hashlib
     import argparse
-    import urllib.parse
 
     parser = argparse.ArgumentParser()
     parser.add_argument('api_key', action='store', type=str, help='The API key for Google Translate API')
@@ -288,5 +288,5 @@ if __name__ == '__main__':
     OUTPUT_LANGUAGE_LIST = OUTPUT_LANGUAGES.split(',')
 
     for res_dir in args.res_dirs.split(','):
-        translate_res_dir(OUTPUT_LANGUAGE_LIST, res_dir)
+        translate_res_dir(TRANSLATIONS_API_KEY, OUTPUT_LANGUAGE_LIST, res_dir)
 
