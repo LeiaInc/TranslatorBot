@@ -17,8 +17,8 @@ _commit_if_needed() {
 }
 
 _setup_git() {
-  git config --global user.name "Translator-Bot"
-  git config --global user.email "leia-codacy-bot@leiainc.com"
+  git config --global user.name "leiapixadmins"
+  git config --global user.email "leiapixadmins@leiainc.com"
 
   git checkout "${GITHUB_BASE_REF}"
   git pull
