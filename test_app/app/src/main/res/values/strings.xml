@@ -17,6 +17,7 @@
   <string name="includes_html_links"><a href="tran">Name of link</a> You should probably mark this as untranslatable. But here we are trying to debug edge cases</string>
   <string name="test_string">The last airbender, Omi</string>
   <string name="edge_case_1">The wind blows over the sea.\n</string>
+  <string name="test">Test1.\n</string>
   <plurals name="includes_quantity_strings">
     <item quantity="one">%1$s  Follower</item>
     <item quantity="other">%1$s  Followers</item>
