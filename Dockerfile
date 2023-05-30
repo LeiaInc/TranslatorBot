@@ -13,6 +13,7 @@ RUN apk update \
     curl \
     ca-certificates \
     git \
+    git-lfs \
     jq \
     bash \
     python3 \
